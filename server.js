@@ -1,6 +1,8 @@
 import express from 'express';
+import cors from 'cros';
+
 const app = express();
-const port = 3000;
+const port = process.env.port || 3000;
 
 import {
     connectToColletion,
@@ -10,6 +12,10 @@ import {
     updateUserData,
 } from './mongo.js';
 
+app.use(cors({
+    origin: 'https://test-task-for-frontend.vercel.app/',
+    optionsSuccessStatus: 200,
+}));
 app.use(express.json());
 
 app.get('/api/users', async (req, res) => {
