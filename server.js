@@ -12,10 +12,7 @@ import {
     updateUserData,
 } from './mongo.js';
 
-app.use(cors({
-    origin: 'https://test-task-for-frontend.vercel.app/',
-    optionsSuccessStatus: 200,
-}));
+app.use(cors());
 app.use(express.json());
 
 app.get('/api/users', async (req, res) => {
