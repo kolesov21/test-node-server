@@ -15,25 +15,25 @@ import {
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/users', async (req, res) => {
+app.get('https://test-node-server-be1d.onrender.com/users', async (req, res) => {
     const usersCollection = await connectToColletion();
     const usersData = await getUsersData(usersCollection);
     res.json(usersData);
 });
 
-app.post('/api/users/add', async(req, res) =>{
+app.post('https://test-node-server-be1d.onrender.com/users/add', async(req, res) =>{
     const usersCollection = await connectToColletion();
     await addNewUser(usersCollection, req.body);
     res.status(201).send('User added successfully');
 });
 
-app.delete('/api/users/:id', async (req, res) => {
+app.delete('https://test-node-server-be1d.onrender.com/users/:id', async (req, res) => {
     const usersCollection = await connectToColletion();
     await deleteUser(usersCollection, req.params.id);
     res.send('User deleted successfully');
 });
 
-app.put('/api/users/update', async(req, res) => {
+app.put('https://test-node-server-be1d.onrender.com/users/update', async(req, res) => {
     const usersCollection = await connectToColletion();
     const updatedUser = req.body;
 
